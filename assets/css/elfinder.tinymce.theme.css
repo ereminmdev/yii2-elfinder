@@ -4,8 +4,7 @@
     border: 1px solid #f5f5f5;
 }
 
-.elfinder,
-.elfinder * {
+.elfinder, .elfinder * {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -16,6 +15,7 @@
 .elfinder .ui-dialog {
     border: 1px solid #ccc;
     border-radius: 6px;
+    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, .3);
     box-shadow: 0 3px 7px rgba(0, 0, 0, .3);
 }
 
@@ -32,8 +32,7 @@
     padding: 15px;
 }
 
-.elfinder .elfinder-dialog-error .ui-dialog-content,
-.elfinder .elfinder-dialog-confirm .ui-dialog-content {
+.elfinder .elfinder-dialog-error .ui-dialog-content, .elfinder .elfinder-dialog-confirm .ui-dialog-content {
     padding-left: 56px;
 }
 
@@ -47,8 +46,7 @@
     border-top: 1px solid #e5e5e5;
 }
 
-.elfinder .ui-button,
-.elfinder .ui-dialog .ui-dialog-buttonpane .ui-button {
+.elfinder .ui-button, .elfinder .ui-dialog .ui-dialog-buttonpane .ui-button {
     display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
@@ -59,6 +57,7 @@
     white-space: nowrap;
     vertical-align: middle;
     ms-touch-action: manipulation;
+    -ms-touch-action: manipulation;
     touch-action: manipulation;
     cursor: pointer;
     -webkit-user-select: none;
@@ -70,8 +69,7 @@
     border-radius: 4px;
 }
 
-.elfinder .ui-button:hover,
-.elfinder .ui-dialog .ui-dialog-buttonpane .ui-button:hover {
+.elfinder .ui-button:hover, .elfinder .ui-dialog .ui-dialog-buttonpane .ui-button:hover {
     color: #333;
     background-color: #e6e6e6;
     border-color: #adadad;
