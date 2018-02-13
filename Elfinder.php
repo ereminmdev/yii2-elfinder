@@ -8,6 +8,10 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 use yii\helpers\Url;
 
+/**
+ * Class Elfinder
+ * @package ereminmdev\yii2\elfinder
+ */
 class Elfinder extends Widget
 {
     /**
@@ -65,7 +69,7 @@ class Elfinder extends Widget
             $defaultOptions['resizable'] = false;
         }
 
-        $this->clientOptions = ArrayHelper::merge($this->clientOptions, $defaultOptions);
+        $this->clientOptions = ArrayHelper::merge($defaultOptions, $this->clientOptions);
     }
 
     /**
