@@ -5,6 +5,10 @@ namespace ereminmdev\yii2\elfinder;
 use Yii;
 use yii\base\Action;
 
+/**
+ * Class ElfinderAction
+ * @package ereminmdev\yii2\elfinder
+ */
 class ElfinderAction extends Action
 {
     public function run()

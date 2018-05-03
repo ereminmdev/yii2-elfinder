@@ -36,7 +36,7 @@ class Elfinder extends Widget
         $this->language = ($this->language !== null) ? $this->language : Yii::$app->language;
 
         $defaultOptions = [
-            'url' => Url::toRoute(['/files/connector'], true),
+            'url' => Url::toRoute(['/files/connector']),
             'lang' => Yii::$app->language,
             'height' => 500,
             'debug' => YII_ENV_DEV ? ['error', 'warning', 'event-destroy'] : false,
