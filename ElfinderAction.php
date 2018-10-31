@@ -22,7 +22,8 @@ class ElfinderAction extends Action
         include_once $dir . 'elFinderVolumeDriver.class.php';
         include_once $dir . 'elFinderVolumeLocalFileSystem.class.php';
 
-        $basePath = Yii::$app->urlManagerFrontend->getBaseUrl();
+        $basePath = Yii::getAlias('@frontend/web');
+        $baseUrl = Yii::$app->urlManagerFrontend->getBaseUrl();
 
         // Documentation for connector options:
         // https://github.com/Studio-42/elFinder/wiki/Connector-configuration-options
@@ -31,14 +32,14 @@ class ElfinderAction extends Action
             'roots' => [
                 [
                     'driver' => 'LocalFileSystem',
-                    'path' => Yii::getAlias('@frontend/web/files'),//Yii::getAlias('@webroot/files'),
-                    'URL' => $basePath . '/files',//Yii::getAlias('@web/files'),
+                    'path' => $basePath . '/files',//Yii::getAlias('@webroot/files'),
+                    'URL' => $baseUrl . '/files',//Yii::getAlias('@web/files'),
                     'alias' => Yii::t('app', 'Files'),
                     'icon' => $iconUrl,
-                    'tmbPath' => Yii::getAlias('@frontend/web/files/temp/elfinder/tmb'),
-                    'tmbURL' => $basePath . '/files/temp/elfinder/tmb',//Yii::getAlias('@web/files/temp/elfinder/tmb'),
+                    'tmbPath' => $basePath . '/files/temp/elfinder/tmb',
+                    'tmbURL' => $baseUrl . '/files/temp/elfinder/tmb',//Yii::getAlias('@web/files/temp/elfinder/tmb'),
                     'tmpPath' => '',
-                    'quarantine' => Yii::getAlias('@frontend/web/files/temp/elfinder/quarantine'),
+                    'quarantine' => $basePath . '/files/temp/elfinder/quarantine',
                     'uploadOverwrite' => false,
                     'attributes' => [
                         [
@@ -67,13 +68,13 @@ class ElfinderAction extends Action
                 [
                     'driver' => 'LocalFileSystem',
                     'path' => Yii::getAlias('@frontend/web'),
-                    'URL' => $basePath . '/',//Yii::getAlias('@web'),
+                    'URL' => $baseUrl . '/',//Yii::getAlias('@web'),
                     'alias' => Yii::t('app', 'Site'),
                     'icon' => $iconUrl,
-                    'tmbPath' => Yii::getAlias('@frontend/web/files/temp/elfinder/tmb'),
-                    'tmbURL' => $basePath . '/files/temp/elfinder/tmb',//Yii::getAlias('@web/files/temp/elfinder/tmb'),
+                    'tmbPath' => $basePath . '/files/temp/elfinder/tmb',
+                    'tmbURL' => $baseUrl . '/files/temp/elfinder/tmb',//Yii::getAlias('@web/files/temp/elfinder/tmb'),
                     'tmpPath' => '',
-                    'quarantine' => Yii::getAlias('@frontend/web/files/temp/elfinder/quarantine'),
+                    'quarantine' => $basePath . '/files/temp/elfinder/quarantine',
                     'uploadOverwrite' => false,
                     'attributes' => [
                         [
@@ -109,7 +110,7 @@ class ElfinderAction extends Action
             ],
         );
 
-        @mkdir(Yii::getAlias('@frontend/web/files/temp/elfinder'), 0777, true);
+        @mkdir($basePath . '/files/temp/elfinder', 0777, true);
 
         // run elFinder
         $connector = new \elFinderConnector(new \elFinder($opts));
