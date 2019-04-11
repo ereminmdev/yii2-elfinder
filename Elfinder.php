@@ -36,6 +36,8 @@ class Elfinder extends Widget
         $this->language = $this->language ?? mb_substr(Yii::$app->language, 0, 2);
         $this->language = $this->language != 'en' ? $this->language : null;
 
+        $clientOptions = $this->clientOptions;
+
         $defaultOptions = [
             'url' => Url::toRoute(['/files/connector']),
             'lang' => $this->language,
@@ -43,7 +45,7 @@ class Elfinder extends Widget
             'debug' => YII_ENV_DEV ? ['error', 'warning', 'event-destroy'] : false,
         ];
 
-        $defaultOptions['uiOptions']['toolbar'] = [
+        $defaultOptions['uiOptions']['toolbar'] = !isset($clientOptions['uiOptions']['toolbar']) ? [
             ['home', 'up'],
             ['back', 'forward'],
             //['netmount'],
@@ -59,7 +61,7 @@ class Elfinder extends Widget
             ['search'],
             ['view', 'sort'],
             //['help'],
-        ];
+        ] : [];
 
         if (Yii::$app->request->enableCsrfValidation) {
             $defaultOptions['customData'][Yii::$app->request->csrfParam] = Yii::$app->request->csrfToken;
@@ -70,7 +72,7 @@ class Elfinder extends Widget
             $defaultOptions['resizable'] = false;
         }
 
-        $this->clientOptions = ArrayHelper::merge($defaultOptions, $this->clientOptions);
+        $this->clientOptions = ArrayHelper::merge($defaultOptions, $clientOptions);
     }
 
     /**
