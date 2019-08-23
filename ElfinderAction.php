@@ -23,7 +23,7 @@ class ElfinderAction extends Action
         include_once $dir . 'elFinderVolumeLocalFileSystem.class.php';
 
         $basePath = Yii::getAlias('@frontend/web');
-        $baseUrl = Yii::$app->urlManagerFrontend->getBaseUrl();
+        $baseUrl = Yii::$app->has('urlManagerFrontend') ? Yii::$app->urlManagerFrontend->baseUrl : Yii::$app->urlManager->baseUrl;
 
         // Documentation for connector options:
         // https://github.com/Studio-42/elFinder/wiki/Connector-configuration-options
