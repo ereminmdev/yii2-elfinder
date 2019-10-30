@@ -2,6 +2,8 @@
 
 namespace ereminmdev\yii2\elfinder;
 
+use elFinderConnector;
+use Exception;
 use Yii;
 use yii\base\Action;
 
@@ -11,6 +13,9 @@ use yii\base\Action;
  */
 class ElfinderAction extends Action
 {
+    /**
+     * @throws Exception
+     */
     public function run()
     {
         $bundle = ElfinderBaseAsset::register(Yii::$app->view);
@@ -113,7 +118,7 @@ class ElfinderAction extends Action
         @mkdir($basePath . '/files/temp/elfinder', 0777, true);
 
         // run elFinder
-        $connector = new \elFinderConnector(new \elFinder($opts));
+        $connector = new elFinderConnector(new \elFinder($opts));
         $connector->run();
     }
 }

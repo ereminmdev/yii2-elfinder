@@ -20,7 +20,7 @@ class Elfinder extends Widget
     public $language;
     /**
      * @var array the options for the Elfinder JS plugin.
-     * @see https://github.com/Studio-42/elFinder/wiki/Client-configuration-options
+     * @see https://github.com/Studio-42/elFinder/wiki/Client-configuration-options-2.1
      */
     public $clientOptions = [];
     /**
@@ -43,6 +43,7 @@ class Elfinder extends Widget
             'lang' => $this->language,
             'height' => 500,
             'debug' => YII_ENV_DEV ? ['error', 'warning', 'event-destroy'] : false,
+            'cssAutoLoad' => false,
         ];
 
         $defaultOptions['uiOptions']['toolbar'] = !isset($clientOptions['uiOptions']['toolbar']) ? [
