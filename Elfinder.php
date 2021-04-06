@@ -29,7 +29,7 @@ class Elfinder extends Widget
     public $fullSize = false;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function init()
     {
@@ -77,7 +77,7 @@ class Elfinder extends Widget
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function run()
     {
