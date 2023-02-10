@@ -2,11 +2,11 @@
 
 Elfinder widget for Yii framework.
 
-This widget depend on elFinder file manager: https://github.com/Studio-42/elFinder
+This widget depends on elFinder file manager: https://github.com/Studio-42/elFinder
 
 ## Install
 
-``composer require ereminmdev/yii2-elfinder``
+``composer require --prefer-dist ereminmdev/yii2-elfinder``
 
 ## Use
 
