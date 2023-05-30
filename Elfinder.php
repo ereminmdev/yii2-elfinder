@@ -90,10 +90,9 @@ class Elfinder extends Widget
     {
         ElfinderAsset::register($this->view);
 
-        $this->view->registerJs("
-// Keep bootstrap no conflict to buttons.
-if($.fn.button.noConflict) { $.fn.btn = $.fn.button.noConflict(); }
-$('#" . $this->id . "').elfinder(" . Json::encode($this->clientOptions) . ").elfinder('instance');
-        ");
+        // Keep bootstrap no conflict to buttons.
+        $this->view->registerJs("if ($.fn.button.noConflict) { $.fn.btn = $.fn.button.noConflict(); }");
+
+        $this->view->registerJs("$('#" . $this->id . "').elfinder(" . Json::encode($this->clientOptions) . ").elfinder('instance');");
     }
 }
