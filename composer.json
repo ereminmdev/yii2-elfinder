@@ -2,7 +2,7 @@
   "name": "ereminmdev/yii2-elfinder",
   "description": "Elfinder widget for Yii framework.",
   "keywords": ["yii2","widget","elfinder"],
-  "homepage": "https://bitbucket.org/ereminmdev/yii2-elfinder",
+  "homepage": "https://github.com/ereminmdev/yii2-elfinder",
   "type": "yii2-extension",
   "license": "MIT",
   "authors": [
@@ -13,7 +13,7 @@
     }
   ],
   "require": {
-    "php": ">=7.0",
+    "php": ">=7.4",
     "yiisoft/yii2": "~2.0.1",
     "yiisoft/yii2-jui": "^2.0",
     "studio-42/elfinder": "2.1.*"

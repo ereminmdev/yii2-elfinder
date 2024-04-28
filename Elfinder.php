@@ -33,7 +33,7 @@ class Elfinder extends Widget
      */
     public function init()
     {
-        $this->language = $this->language ?? mb_substr(Yii::$app->language, 0, 2);
+        $this->language ??= mb_substr(Yii::$app->language, 0, 2);
         $this->language = $this->language != 'en' ? $this->language : null;
 
         $clientOptions = $this->clientOptions;

@@ -31,86 +31,83 @@ class ElfinderAction extends Action
         $baseUrl = Yii::$app->has('urlManagerFrontend') ? Yii::$app->urlManagerFrontend->baseUrl : Yii::$app->urlManager->baseUrl;
 
         // https://github.com/Studio-42/elFinder/wiki/Connector-configuration-options
-        $opts = array(
-            'debug' => YII_ENV_DEV,
-            'roots' => [
-                [
-                    'driver' => 'LocalFileSystem',
-                    'path' => $basePath . '/files', //Yii::getAlias('@webroot/files'),
-                    'URL' => $baseUrl . '/files', //Yii::getAlias('@web/files'),
-                    'alias' => Yii::t('app', 'Files'),
-                    'icon' => $iconUrl,
-                    'tmbPath' => $basePath . '/files/temp/elfinder/tmb',
-                    'tmbURL' => $baseUrl . '/files/temp/elfinder/tmb', //Yii::getAlias('@web/files/temp/elfinder/tmb'),
-                    'tmpPath' => '',
-                    'uploadOverwrite' => false,
-                    'attributes' => [
-                        [
-                            'pattern' => '/\.gitignore/',
-                            'read' => false,
-                            'write' => false,
-                            'hidden' => true,
-                            'locked' => true,
-                        ],
-                        [
-                            'pattern' => '/\.htaccess/',
-                            'read' => false,
-                            'write' => false,
-                            'hidden' => true,
-                            'locked' => true,
-                        ],
-                        [
-                            'pattern' => '/temp/',
-                            'read' => false,
-                            'write' => false,
-                            'hidden' => true,
-                            'locked' => true,
-                        ],
+        $opts = ['debug' => YII_ENV_DEV, 'roots' => [
+            [
+                'driver' => 'LocalFileSystem',
+                'path' => $basePath . '/files', //Yii::getAlias('@webroot/files'),
+                'URL' => $baseUrl . '/files', //Yii::getAlias('@web/files'),
+                'alias' => Yii::t('app', 'Files'),
+                'icon' => $iconUrl,
+                'tmbPath' => $basePath . '/files/temp/elfinder/tmb',
+                'tmbURL' => $baseUrl . '/files/temp/elfinder/tmb', //Yii::getAlias('@web/files/temp/elfinder/tmb'),
+                'tmpPath' => '',
+                'uploadOverwrite' => false,
+                'attributes' => [
+                    [
+                        'pattern' => '/\.gitignore/',
+                        'read' => false,
+                        'write' => false,
+                        'hidden' => true,
+                        'locked' => true,
                     ],
-                ],
-                [
-                    'driver' => 'LocalFileSystem',
-                    'path' => Yii::getAlias('@frontend/web'),
-                    'URL' => $baseUrl . '/', //Yii::getAlias('@web'),
-                    'alias' => Yii::t('app', 'Site'),
-                    'icon' => $iconUrl,
-                    'tmbPath' => $basePath . '/files/temp/elfinder/tmb',
-                    'tmbURL' => $baseUrl . '/files/temp/elfinder/tmb', //Yii::getAlias('@web/files/temp/elfinder/tmb'),
-                    'tmpPath' => '',
-                    'uploadOverwrite' => false,
-                    'attributes' => [
-                        [
-                            'pattern' => '/\.gitignore/',
-                            'read' => false,
-                            'write' => false,
-                            'hidden' => true,
-                            'locked' => true,
-                        ],
-                        [
-                            'pattern' => '/\.htaccess/',
-                            'read' => false,
-                            'write' => false,
-                            'hidden' => true,
-                            'locked' => true,
-                        ],
-                        [
-                            'pattern' => '/temp/',
-                            'read' => false,
-                            'write' => false,
-                            'hidden' => true,
-                            'locked' => true,
-                        ],
-                        [
-                            'pattern' => '/\.php$/',
-                            'read' => false,
-                            'write' => false,
-                            'hidden' => true,
-                            'locked' => true,
-                        ],
+                    [
+                        'pattern' => '/\.htaccess/',
+                        'read' => false,
+                        'write' => false,
+                        'hidden' => true,
+                        'locked' => true,
+                    ],
+                    [
+                        'pattern' => '/temp/',
+                        'read' => false,
+                        'write' => false,
+                        'hidden' => true,
+                        'locked' => true,
                     ],
                 ],
             ],
-        );
+            [
+                'driver' => 'LocalFileSystem',
+                'path' => Yii::getAlias('@frontend/web'),
+                'URL' => $baseUrl . '/', //Yii::getAlias('@web'),
+                'alias' => Yii::t('app', 'Site'),
+                'icon' => $iconUrl,
+                'tmbPath' => $basePath . '/files/temp/elfinder/tmb',
+                'tmbURL' => $baseUrl . '/files/temp/elfinder/tmb', //Yii::getAlias('@web/files/temp/elfinder/tmb'),
+                'tmpPath' => '',
+                'uploadOverwrite' => false,
+                'attributes' => [
+                    [
+                        'pattern' => '/\.gitignore/',
+                        'read' => false,
+                        'write' => false,
+                        'hidden' => true,
+                        'locked' => true,
+                    ],
+                    [
+                        'pattern' => '/\.htaccess/',
+                        'read' => false,
+                        'write' => false,
+                        'hidden' => true,
+                        'locked' => true,
+                    ],
+                    [
+                        'pattern' => '/temp/',
+                        'read' => false,
+                        'write' => false,
+                        'hidden' => true,
+                        'locked' => true,
+                    ],
+                    [
+                        'pattern' => '/\.php$/',
+                        'read' => false,
+                        'write' => false,
+                        'hidden' => true,
+                        'locked' => true,
+                    ],
+                ],
+            ],
+        ]];
 
         @mkdir($basePath . '/files/temp/elfinder', 0777, true);
 
